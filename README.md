@@ -102,16 +102,54 @@ Q(t+1)=T′Q(t)+TQ(t)′
 ⇒Q(t+1)=T⊕Q(t)
 
 ### Procedure
-/* write all the steps invloved */
+1.Create a project with required entities.
+
+2.Create a module along with respective file name.
+
+3.Run the respective programs for the given boolean equations.
+
+4.Run the module and get the respective RTL outputs.
+
+5.Create university program(VWF) for getting timing diagram.
+
+6.Give the respective inputs for timing diagram and obtain the results.
 
 
 
 ### PROGRAM 
 /*
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+Developed by: gokularamanan k
+RegisterNumber: 2122222230040 
 */
+
+```
+module flipflop(s,r,Q,Qbar,clk);
+input s,r,clk;
+output reg Q,Qbar;
+initial Q=0;
+initial Qbar=1;
+always @(posedge clk)
+begin
+Q=s|(Q&(~r));
+Qbar=r|(Qbar&(~s));
+end
+endmodule
+
+JK FLIPFLOPS CODE:
+module flipflops(J,K,clk,Q,Qbar);
+input J,K,clk;
+output reg Q;
+output reg Qbar;
+initial Q=0;
+initial Qbar=1;
+always @(posedge clk)
+begin
+Q=(J&(~Q))|((~K)&Q);
+Qbar=((~J)&(Qbar))|K&(~Qbar);
+end
+endmodule
+```
 
 
 
@@ -119,7 +157,11 @@ RegisterNumber:
 
 
 ### RTL LOGIC FOR FLIPFLOPS 
+SR FLIPFLOP:
+![image](https://github.com/Gokulanbazhagan/Experiment--05-Implementation-of-flipflops-using-verilog/assets/119518996/3a85b2d5-1dd1-4a0c-b0e4-86ad67250f80)
 
+JK FLIPFLOP:
+![image](https://github.com/Gokulanbazhagan/Experiment--05-Implementation-of-flipflops-using-verilog/assets/119518996/107f6de5-db04-4ffd-9878-cdc1742a4121)
 
 
 
@@ -130,6 +172,11 @@ RegisterNumber:
 
 ### TIMING DIGRAMS FOR FLIP FLOPS 
 
+SA FLIPFLOP:
+![image](https://github.com/Gokulanbazhagan/Experiment--05-Implementation-of-flipflops-using-verilog/assets/119518996/d15f3584-b118-4217-9a8d-665e1bbd7506)
+
+JK FLIPFLOP:
+![image](https://github.com/Gokulanbazhagan/Experiment--05-Implementation-of-flipflops-using-verilog/assets/119518996/46ae440d-2b94-40b8-a9a5-888aaa7d4338)
 
 
 
@@ -138,3 +185,4 @@ RegisterNumber:
 
 
 ### RESULTS 
+All the flipflops are implemented using verilog and their functionality has been validated using their functional tables.
